@@ -2,7 +2,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from django.utils import timezone
 from .models import Blog
-from drink.models import BlogDrink
+from category.models import BlogDrink
 from django.views.decorators.csrf import csrf_exempt
 
 
