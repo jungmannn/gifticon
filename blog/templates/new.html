@@ -1,0 +1,125 @@
+<!-- <div class = 'container'>
+    <form action = '{% url "create" %}'>
+        <h4>제목</h4>
+        <input type = 'text' name = 'title'>
+        <br>
+        <br>
+        <h4>본문</h4>
+        <textarea cols = 40 rows = 10 name ='body'></textarea>
+        <br>
+        <br>
+        <input class = "btn btn-dark " type = "submit" value = "제출">
+    </form>
+</div> -->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <!--link=북스트랩에서 css only부분, script= js,popper.js,,,부분 복붙-->
+
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <!--navbar색깔바꾸기-->
+            <a class="navbar-brand"><b>Gifticon Shop </b></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                            <li class="nav-item ">
+                                <a class="nav-link" href="{% url 'home' %}">홈<span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'drink' %}">Drink</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'food' %}">Food</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'fashion' %}">Fashion</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="{% url 'specialPrice' %}">Special Price</a>
+                            </li>
+                            
+                        </ul>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <table class="table table-bordered">
+            <thead>
+                <caption> Contact </caption>
+            </thead>
+            <tbody>
+                <form action='{% url "create" %}' method="post" encType="multiplart/form-data" novalidate>
+                    {% csrf_token %}
+                    <tr>
+                        <th>물품</th>
+                        <td><input type="text" placeholder="물품을 입력하세요. " name="title" class="form-control" /></td>
+                    </tr>
+                    <tr>
+                        <th>종류</th>
+                        <td><select name="kinds">
+                                <option>종류를 선택하세요.</option>
+                                <option value="drink">음료</option>
+                                <option value="food">음식</option>
+                                <option value="fashion">패션잡화</option>
+                                <option value="specialPrice">특가상품</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <th>카카오톡 아이디</th>
+                        <td><input type="text" placeholder="카카오톡 아이디를 입력하세요." name='kakaoTalkID' class="form-control" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>희망 가격</th>
+                        <td><input type="text" placeholder="희망 가격을 입력하세요." name='price' class="form-control" />
+                        </td>
+                    </tr>
+                   
+                    <tr>
+                    <tr>
+                        <th>요구사항</th>
+                        <td><textarea cols="10" placeholder="내용을 입력하세요. " name="body" class="form-control"></textarea>
+                        </td>
+                    </tr>
+
+                    <td colspan="2">
+                        <input type="submit" value="SUBMIT" class="pull-right" />
+                    </td>
+                    </tr>
+                </form>
+            </tbody>
+        </table>
+    </div>
+</body>
+<footer class="text-muted">
+        <div class="container">
+            <p class="float-right">
+                <a href="#">맨 위로</a>
+            </p>
+            <p>Gifticon &copy; better price, for your better life</p>
+            <p>special price thing for you <a href="{ url 'home' }">Visit the homepage</a> or read our <a
+                    href="/docs/4.3/getting-started/introduction/">getting used guide</a>.</p>
+        </div>
+    </footer>
+
+</html>

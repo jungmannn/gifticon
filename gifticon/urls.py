@@ -16,10 +16,19 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 import blog.views
+import category.views
 from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', blog.views.home, name='home'),
+    path('', blog.views.home, name = 'home'),
+    path('blog/<int:blog_id>', blog.views.detail, name = 'detail'),
+    path('blog/new/', blog.views.new, name = 'new'),
+    path('blog/create/', blog.views.create, name = 'create'),
+    path('drink/', category.views.drink, name = 'drink'),
+    path('food/', category.views.food, name = 'food'),
+    path('fashion/', category.views.fashion, name = 'fashion'),
+    path('specialPrice/', category.views.specialPrice, name = 'specialPrice'),
+    path('detail/<int:blogDrink_id>', category.views.Drinkdetail, name = 'Drinkdetail'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
