@@ -1,0 +1,1 @@
+web: gunicorn gifticon.wsgi --log-file -
